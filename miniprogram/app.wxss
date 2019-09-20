@@ -1,7 +1,156 @@
-/**app.wxss**/
 .container {
+  height: 100%;
+}
+
+page {
+  background: #f1f1f1;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.col {
   display: flex;
   flex-direction: column;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
   align-items: center;
-  box-sizing: border-box;
-} 
+}
+
+.text-oneline {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.gap {
+  width: 100%;
+  height: 10rpx;
+  background-color: #f1f1f1;
+}
+
+.line {
+  width: 100%;
+  height: 1rpx;
+  background-color: #f1f1f1;
+}
+
+.break {
+  word-break: break-all;
+}
+
+.c3 {
+  color: #333;
+}
+
+.c6 {
+  color: #666;
+}
+
+.c9 {
+  color: #999;
+}
+
+.cd {
+  color: #ddd;
+}
+
+.cc {
+  color: #ccc;
+}
+
+.f18 {
+  font-size: 18rpx;
+}
+
+.f20 {
+  font-size: 20rpx;
+}
+
+.f22 {
+  font-size: 22rpx;
+}
+
+.f24 {
+  font-size: 24rpx;
+}
+
+.f26 {
+  font-size: 26rpx;
+}
+
+.f28 {
+  font-size: 28rpx;
+}
+
+.f30 {
+  font-size: 30rpx;
+}
+
+.f32 {
+  font-size: 32rpx;
+}
+
+.f34 {
+  font-size: 34rpx;
+}
+
+.f36 {
+  font-size: 36rpx;
+}
+
+.f48 {
+  font-size: 48rpx;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.bg-white {
+  background-color: white;
+}
+
+.bg-btn {
+  width: 325rpx;
+  height: 70rpx;
+  color: white;
+  font-size: 28rpx;
+  background: linear-gradient(45deg, #50baff 0%, #008be5 100%);
+  border-radius: 44rpx;
+}
+
+/* 引入的其他样式 */
+
+.shadow {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.8;
+  z-index: 99;
+}
+
+.shadow-content {
+  position: absolute;
+  z-index: 100;
+}
+
+.avatar {
+  border-radius: 50%;
+}
+
+
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
