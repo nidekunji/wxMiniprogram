@@ -1,6 +1,7 @@
 //app.js
 App({
   onLaunch: function () {
+    this.globalData = {}
     this.isLogin = false
     this.globalData.windowHeight = wx.getSystemInfoSync().windowHeight // 屏幕的高度    
     this.globalData.windowWidth = wx.getSystemInfoSync().windowWidth // 屏幕的宽度  
@@ -8,7 +9,7 @@ App({
     if (userInfo = wx.getStorageSync('userInfo')) {
       this.globalData.userInfo = userInfo;
     }
-    
+    console.log(this.globalData, '全局数据');
     if (!wx.cloud) {
       console.error('请使用 2.2.3 或以上的基础库以使用云能力')
     } else {
@@ -16,7 +17,5 @@ App({
         traceUser: true,
       })
     }
-
-    this.globalData = {}
   }
 })

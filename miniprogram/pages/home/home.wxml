@@ -1,0 +1,15 @@
+<!--pages/home/home.wxml-->
+ <!-- 用户 openid -->
+ <view class="container">
+ <!-- 授权按钮 -->
+    <view class="userinfo">
+      <button 
+       wx:if="{{!hasUserInfo && canIUse}}"
+        open-type="getUserInfo" 
+        bindgetuserinfo="onGetUserInfo"
+        hover-class="none"
+        class='getUserInfoBtn'
+      ></button>
+    </view>
+  
+  </view>
