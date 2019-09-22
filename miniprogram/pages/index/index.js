@@ -5,6 +5,7 @@ Page({
   data: {
     avatarUrl: './user-unlogin.png',
     userInfo: {},
+    showGetUserInfo:false,
     logged: false,
     takeSession: false,
     requestResult: ''
