@@ -1,20 +1,28 @@
 // pages/user/user.js
+const app=getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    userInfo:{}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    if (app.isLogin) {
+      this.lateInit()
+    }
   },
-
+  lateInit() {
+    //请求个人中心数据
+    this.setData({
+      userInfo: app.globalData.userInfo
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

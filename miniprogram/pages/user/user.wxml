@@ -1,0 +1,31 @@
+<view class="user-center-page container">
+  <view class="banner row">
+    <image src='{{userInfo.avatarUrl}}' class="avatar" />
+    <text class="text-oneline">{{userInfo.nickName}}</text>
+    <image class="scan" bindtap="scanCode"></image>
+  </view>
+  <view class='gap'></view>
+
+  <view class="user-center col">
+    <view class="block-title row">
+      <view></view>
+      <text>我的小助手</text>
+    </view>
+    <view class="row">
+      <navigator class='icon'>
+        <view class='img'>
+          <image src='https://img.zhichikeji.com/images/icon-1.png'></image>
+          <!-- <image src='https://img.zhichiwangluo.com/5cbffe3d1365etmp_c827e4f37c9c680d3d08ea571b622bd1.jpg'></image> -->
+        </view>
+        <view class='txt'>我的发布</view>
+      </navigator>
+      <navigator class='icon'>
+        <view class='img'>
+          <image src='https://img.zhichikeji.com/images/icon-2.png'></image>
+        </view>
+        <view class='txt'>回复我的</view>
+      </navigator>
+
+    </view>
+  </view>
+</view>

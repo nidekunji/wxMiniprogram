@@ -1,22 +1,11 @@
 <!--pages/home/home.wxml-->
 <!-- 用户 openid -->
 <component-getUserInfo showGetUserInfo="{{showGetUserInfo}}"></component-getUserInfo>
-<view>
-  
-  <!-- 授权按钮 -->
-  <!-- <view class="userinfo">
-      <button 
-       wx:if="{{!hasUserInfo && canIUse}}"
-        open-type="getUserInfo" 
-        bindgetuserinfo="onGetUserInfo"
-        hover-class="none"
-        class='getUserInfoBtn'
-      ></button>
-      <block>
-      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-      <button bindtap="onBindLogin">登录</button>
-      </block>
-    </view> -->
+<view class="container">
+
+  <view class="row search-bar">
+    <input class="search-bar-input" placeholder="搜索" bindinput="onInput"></input>
+    <view class="search-bar-btn center" bindtap="onSearch">搜索</view>
+  </view>
 
 </view>

@@ -13,8 +13,9 @@ App({
 
     this.checkUserAuth().then((res) => {
       console.log('已经授权')
+      this._login(res)
     }).catch(() => {})
-    
+
     if (!wx.cloud) {
       console.error('请使用 2.2.3 或以上的基础库以使用云能力')
     } else {
@@ -29,11 +30,29 @@ App({
     this.showLoading({
       title: '登陆中...'
     })
-    wx.login({
-      success: (res) => {
-
+    wx.cloud.callFunction({
+      name: 'login',
+      data: {},
+      success: res => {
+        console.log('[云函数] [login] user openid: ', res.result.openid)
+        self.loginSuccess(res.result.openid)
+      },
+      fail: err => {
+        console.error('[云函数] [login] 调用失败', err)
+        wx.hideLoading()
+        wx.showToast({
+          title: '登陆失败',
+          icon: "none"
+        })
       }
     })
+  },
+  loginSuccess(openid) {
+    this.globalData.openid = openid
+    wx.hideLoading()
+    this.isLogin = true
+    let pageInstance = this.getAppCurrentPage();
+    pageInstance.lateInit()
   },
   checkUserAuth() {
     let self = this
@@ -52,17 +71,27 @@ App({
               }
             })
           } else {
-            let pageInstance = self.getAppCurrentPage();
-            pageInstance.setData({
-              showGetUserInfo: true
-            });
-            reject()
+            setTimeout(() => {
+              let pageInstance = self.getAppCurrentPage();
+              pageInstance.setData({
+                showGetUserInfo: true
+              });
+              reject()
+            }, 200)
           }
         }
       })
     })
   },
+  getUserInfo(userInfo) {
+    let self = this;
+    wx.setStorage({
+      key: 'userInfo',
+      data: userInfo,
+    })
+    this._login(userInfo)
 
+  },
   // 展示提醒文字
   hideToast: function() {
     wx.hideToast();

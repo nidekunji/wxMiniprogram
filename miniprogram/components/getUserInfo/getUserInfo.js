@@ -46,6 +46,7 @@ Component({
           showGetUserInfo: false,
           showNoLoginTip: false
         });
+        app.getUserInfo(e.detail.userInfo)
       }
     },
     // 打开设置
