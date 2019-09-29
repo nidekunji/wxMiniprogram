@@ -8,4 +8,7 @@
     <view class="search-bar-btn center" bindtap="onSearch">搜索</view>
   </view>
 
+<view class="list-container col">
+  
+</view>
 </view>

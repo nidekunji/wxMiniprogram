@@ -1,10 +1,13 @@
 // pages/home/home.js
 const app = getApp()
-
+import {
+  Service
+} from '../../untils/cloudFuc.js'
 Page({
   data: {
     userInfo: {},
-    searchValue: ""
+    searchValue: "",
+    recommendList: []
   },
 
   onLoad: function() {
@@ -14,6 +17,18 @@ Page({
   },
   lateInit() {
     //请求首页数据
+    this.getPostList()
+  },
+  _curPage: 1,
+  getPostList(init) {
+    // wx.showLoading({
+    //   title: '加载中...',
+    // })
+    Service.getPostList(init ? 1 : this._curPage).then((res) => {
+      this.setData({
+        recommendList: res
+      })
+    })
   },
   onSearch() {
     if (!this.searchValue) {
